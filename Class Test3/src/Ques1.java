@@ -12,19 +12,22 @@ public class Ques1 {
 		if(rep.size() > weights.size())
 			return -100;
 		
+		ArrayList<Boolean> rep1 = new ArrayList<Boolean>(rep);
+		ArrayList<Double> weights1 = new ArrayList<Double>(weights);
+		
 		double lhs = 0.0;
 		double rhs = 0.0;
 	
-		for(int i = 0; i < rep.size(); i++)
+		for(int i = 0; i < rep1.size(); i++)
 		{
-			if(rep.set(i, true))
+			if(rep1.set(i, true))
 			{
-				lhs += weights.get(i);
+				lhs += weights1.get(i);
 			}
 			else
 			{
-				rep.set(i, false);
-				rhs += weights.get(i);
+				rep1.set(i, false);
+				rhs += weights1.get(i);
 			}
 		}
 		return Math.abs(lhs - rhs);
